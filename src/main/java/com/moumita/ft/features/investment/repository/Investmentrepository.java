@@ -1,5 +1,7 @@
 package com.moumita.ft.features.investment.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +20,8 @@ public interface Investmentrepository extends JpaRepository<Investment, Integer>
 
 	@Query("SELECT sum(i.amount) FROM Investment i WHERE i.month = :month AND i.userId = :userId")
 	long findByMonth(int userId,String month);
+
+	List<Investment> findByUserIdOrderByMonthAsc(int userId);
 	
 	
 //	@Modifying//need for update and delete query

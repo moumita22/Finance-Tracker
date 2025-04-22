@@ -3,8 +3,12 @@ package com.moumita.ft.features.report.model;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "tbl_monthly_report")
 public class Report {
 
 	@Id
@@ -12,8 +16,6 @@ public class Report {
 	private int id;
 	@Column(name = "fld_user_id")
 	private int userId;
-	@Column(name = "fld_amount")
-	private long amount;
 	@Column(name = "fld_month")
 	private String month;
 	@Column(name = "fld_date")
@@ -26,6 +28,12 @@ public class Report {
 	private long totalExpense;
 	@Column(name = "fld_total_savings")
 	private long totalSavings;
+	@Column(name = "fld_invested_percentage")
+	private double investedPercentage;
+	@Column(name = "fld_expense_percentage")
+	private double expensePercentage;
+	@Column(name = "fld_savings_percentage")
+	private double savingsPercentage;
 	@Column(name = "fld_increased_expence")
 	private double increasedExpence;
 	@Column(name = "fld_increased_savings")
@@ -33,9 +41,8 @@ public class Report {
 	@Column(name = "fld_increased_investment")
 	private double increasedInvestment;
 	@Column(name = "fld_summary")
-	
-	
 	private String summary;
+	
 	public int getId() {
 		return id;
 	}
@@ -47,12 +54,6 @@ public class Report {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-	public long getAmount() {
-		return amount;
-	}
-	public void setAmount(long amount) {
-		this.amount = amount;
 	}
 	public String getMonth() {
 		return month;
@@ -90,6 +91,24 @@ public class Report {
 	public void setTotalSavings(long totalSavings) {
 		this.totalSavings = totalSavings;
 	}
+	public double getInvestedPercentage() {
+		return investedPercentage;
+	}
+	public void setInvestedPercentage(double investedPercentage) {
+		this.investedPercentage = investedPercentage;
+	}
+	public double getExpensePercentage() {
+		return expensePercentage;
+	}
+	public void setExpensePercentage(double expensePercentage) {
+		this.expensePercentage = expensePercentage;
+	}
+	public double getSavingsPercentage() {
+		return savingsPercentage;
+	}
+	public void setSavingsPercentage(double savingsPercentage) {
+		this.savingsPercentage = savingsPercentage;
+	}
 	public double getIncreasedExpence() {
 		return increasedExpence;
 	}
@@ -116,7 +135,7 @@ public class Report {
 	}
 	@Override
 	public String toString() {
-		return "report [id=" + id + ", userId=" + userId + ", amount=" + amount + ", month=" + month + ", date=" + date
+		return "report [id=" + id + ", userId=" + userId + ", month=" + month + ", date=" + date
 				+ ", score=" + score + ", totalInvested=" + totalInvested + ", totalExpense=" + totalExpense
 				+ ", totalSavings=" + totalSavings + ", increasedExpence=" + increasedExpence + ", increasedSavings="
 				+ increasedSavings + ", increasedInvestment=" + increasedInvestment + ", summary=" + summary + "]";

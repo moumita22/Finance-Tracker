@@ -61,7 +61,7 @@ $(function() {
         resize: true
     });
 
-    Morris.Donut({
+    /*Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
             label: "Download Sales",
@@ -74,7 +74,7 @@ $(function() {
             value: 20
         }],
         resize: true
-    });
+    });*/
 
     Morris.Bar({
         element: 'morris-bar-chart',
